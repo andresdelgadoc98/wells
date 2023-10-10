@@ -8,6 +8,7 @@ import Paper from '@mui/material/Paper';
 import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
 import { styled } from '@mui/material/styles';
+import {useState} from 'react';
 import TableCell, { tableCellClasses } from '@mui/material/TableCell';
 
 const jsonData = [
@@ -42,9 +43,22 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.body}`]: {
     fontSize: 14,
   },
-}));
+}))
 
 export default function DenseTable() {
+  const [data, setData] = useState(jsonData);
+
+  const handleRecibirNotificacionesChange = (id, newValue) => {
+    console.log(id, newValue)
+    const newData = data.map((row) => {
+      if (row.id === id) {
+        return { ...row, recibir_notificaciones: newValue }
+      }
+      return row
+    })
+    setData(newData)
+  }
+
   return (
     <TableContainer component={Paper}>
     <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
@@ -57,7 +71,7 @@ export default function DenseTable() {
         </TableRow>
       </TableHead>
       <TableBody>
-          {jsonData.map((row,) => (
+          {data.map((row,) => (
             <TableRow
               key={row.id}
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
@@ -82,9 +96,7 @@ export default function DenseTable() {
   );
 }
 
-function handleRecibirNotificacionesChange(id, value){
-  console.log(id, value)
-}
+
 
 
 //            propuesta de estructura de JSON
