@@ -9,34 +9,34 @@ export default function Nav() {
                 <AppBar position="static">
                     <Toolbar>
                         <IconButton
-                            component={Link} to={'/'}
+                            component={Link} to={'/users'}
                             size="large"
                             edge="end"
                             aria-label="settings "
                             aria-haspopup="true"
                             color="inherit"
                         >
-                            Plano
+                            Usuarios
                         </IconButton>
                         <IconButton
-                            component={Link} to={'/sectores'}
+                            component={Link} to={'/alerts'}
                             size="large"
                             edge="end"
                             aria-label="account of current user"
                             aria-haspopup="true"
                             color="inherit"
                         >
-                            Sectores
+                            Alertas
                         </IconButton>
                         <IconButton
-                            component={Link} to={'/ayuda'}
+                            component={Link} to={'/wells'}
                             size="large"
                             edge="end"
                             aria-label="account of current user"
                             aria-haspopup="true"
                             color="inherit"
                         >
-                            Ayuda
+                            Pozos
                         </IconButton>
 
                     </Toolbar>
